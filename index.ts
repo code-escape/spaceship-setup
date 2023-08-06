@@ -8,7 +8,7 @@ const HOST = process.env.HOST || 'http://localhost';
 const PORT = parseInt(process.env.PORT || '4500');
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Express + TypeScript Server');
+    res.json({message: 'Express + TypeScript Server'});
 });
 
 app.listen(PORT, () => {

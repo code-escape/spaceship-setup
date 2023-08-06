@@ -10,6 +10,7 @@ apt install curl -y
 
 echo "⚙️ - Install nginx"
 apt install nginx -y
+cp /app/setup/nginx.conf /etc/nginx/sites-enabled/default
 service nginx restart
 
 echo "⚙️ - Install NodeJs"
