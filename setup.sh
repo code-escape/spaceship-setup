@@ -10,7 +10,7 @@ apt install curl -y
 
 echo "⚙️ - Install nginx"
 apt install nginx -y
-cp /app/setup/nginx.conf /etc/nginx/sites-enabled/default
+cp ./setup/nginx.conf /etc/nginx/sites-enabled/default
 service nginx restart
 
 echo "⚙️ - Install NodeJs"
@@ -51,17 +51,3 @@ pm2 start ecosystem.config.js
 #  gpg --no-default-keyring --keyring "$KEYRING" --list-keyssudo apt update && apt upgrade
 #} 1>/dev/null
 #
-#echo "⚙️ - Create the user"
-#{
-#  id team-asa
-#
-#  if $? -neq 0; then
-#    mkdir -p /home/team-asa
-#    useradd team-asa
-#    echo 'team-asa:@iLovePizzaEvery1day' | chpasswd
-#    usermod -aG sudo team-asa
-#  fi
-#} 1>/dev/null
-#
-## Autorise la connexion via SSH
-#sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
