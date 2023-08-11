@@ -20,7 +20,9 @@ apt-get install -y nodejs
 echo "⚙️ - Install NodeJs"
 npm install -g pm2
 npm install
+npm run build
 pm2 start ecosystem.config.js
+pm2 stop all
 
 #KEYRING=/usr/share/keyrings/nodesource.gpg
 #wget --quiet -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee "$KEYRING" >/dev/null
