@@ -1,21 +1,22 @@
 #!/bin/bash
 set -e
+export DEBIAN_FRONTEND=noninteractive
 
 clear
 
 echo -e "\n\n⚙️ - Update the image"
-apt update -y
-apt install wget gpg -y
-apt install curl -y
+sudo apt update -y
+sudo apt install wget gpg -y
+sudo apt install curl -y
 
 echo -e "\n\n⚙️ - Install nginx"
-apt install nginx -y
-cp ./setup/nginx.conf /etc/nginx/sites-enabled/default
-service nginx restart
+sudo apt install nginx -y
+sudo cp ./setup/nginx.conf /etc/nginx/sites-enabled/default
+sudo service nginx restart
 
 echo -e "\n\n⚙️ - Install NodeJs"
 curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-apt-get install -y nodejs
+sudo apt-get install -y nodejs
 
 echo -e "\n\n⚙️ - Install PM2"
 npm install -g pm2
