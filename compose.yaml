@@ -1,13 +1,11 @@
 services:
   instance:
-    image: marketplace.gcr.io/google/debian11:latest
+    build: .
     networks:
       - elastic
     expose:
       - 80
       - 8080
-    volumes:
-      - .:/app/
 networks:
   elastic:
     driver: bridge
