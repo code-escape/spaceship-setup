@@ -3,21 +3,21 @@ set -e
 
 clear
 
-echo "⚙️ - Update the image"
+echo -e "\n\n⚙️ - Update the image"
 apt update -y
 apt install wget gpg -y
 apt install curl -y
 
-echo "⚙️ - Install nginx"
+echo -e "\n\n⚙️ - Install nginx"
 apt install nginx -y
 cp ./setup/nginx.conf /etc/nginx/sites-enabled/default
 service nginx restart
 
-echo "⚙️ - Install NodeJs"
+echo -e "\n\n⚙️ - Install NodeJs"
 curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 apt-get install -y nodejs
 
-echo "⚙️ - Install NodeJs"
+echo -e "\n\n⚙️ - Install PM2"
 npm install -g pm2
 npm install
 npm run build
