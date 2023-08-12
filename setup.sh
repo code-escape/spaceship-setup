@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
+echo -e "\n\n⚙️ - Dans le script"
 export DEBIAN_FRONTEND=noninteractive
-
-clear
+export TERM=dumb
+env
 
 echo -e "\n\n⚙️ - Update the image"
 sudo apt update -y
@@ -15,7 +16,7 @@ sudo cp ./setup/nginx.conf /etc/nginx/sites-enabled/default
 sudo service nginx restart
 
 echo -e "\n\n⚙️ - Install NodeJs"
-curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo bash -
 sudo apt-get install -y nodejs
 
 echo -e "\n\n⚙️ - Install PM2"
@@ -24,6 +25,9 @@ npm install
 npm run build
 pm2 start ecosystem.config.js
 pm2 stop all
+
+sudo rm -rf ./setup
+sudo rm setup.sh
 
 #KEYRING=/usr/share/keyrings/nodesource.gpg
 #wget --quiet -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee "$KEYRING" >/dev/null
