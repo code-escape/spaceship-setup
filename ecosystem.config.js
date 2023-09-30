@@ -5,6 +5,7 @@ module.exports = {
             instances : '2',
             exec_mode : 'cluster',
             exec_interpreter: "node",
+            watch: ['dist'],
             env: {
                 PORT: 4500,
             },
